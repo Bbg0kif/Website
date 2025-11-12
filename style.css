@@ -1,65 +1,65 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #81ecec, #74b9ff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #81ecec, #74b9ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .quiz-container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 20px;
-    width: 550px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    text-align: center;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 550px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .question {
-    font-size: 18px;
-    margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 .answers label {
-    display: block;
-    background: #f1f2f6;
-    margin: 8px 0;
-    padding: 8px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: left;
+  display: block;
+  background: #f1f2f6;
+  margin: 8px 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: left;
 }
 
 .answers label:hover {
-    background: #dfe6e9;
+  background: #dfe6e9;
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    background: #0984e3;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: #0984e3;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-    background: #74b9ff;
+  background: #74b9ff;
 }
 
 #results {
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
 }
