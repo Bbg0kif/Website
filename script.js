@@ -1,6 +1,31 @@
 const questionContainer = document.getElementById('question-container');
 const nextButton = document.getElementById('next-btn');
 const resultsContainer = document.getElementById('results');
+const startButton = document.getElementById('start-btn');
+const regContainer = document.getElementById('registration-container');
+const historyButton = document.getElementById('history-btn');
+const historyContainer = document.getElementById('history-container');
+
+let studentName = "";
+let studentGroup = "";
+let studentFaculty = "";
+
+startButton.addEventListener("click", () => {
+  studentName = document.getElementById("student-name").value.trim();
+  studentGroup = document.getElementById("student-group").value.trim();
+  studentFaculty = document.getElementById("student-faculty").value.trim();
+
+  if (!studentName || !studentGroup || !studentFaculty){
+    alert("Заповніть всі поля перед початком тесту");
+    return;
+  }
+
+  regContainer.style.display = "none";
+  questionContainer.style.display = "block";
+  nextButton.style.display = "inline-block";
+
+  showQuestion(currentQuestionIndex);
+});
 
 const quizQuestions = [
   { question: "1. Який пристрій є основним для введення тексту в комп’ютер?", answers: { a: "Монітор", b: "Клавіатура", c: "Принтер", d: "Мишка" }, correctAnswer: "b" },
@@ -59,21 +84,72 @@ nextButton.addEventListener('click', () => {
   }
 });
 
+function saveToHistory(){
+  const percent = Math.round((score / quizQuestions.length) * 100);
+
+  const record = {
+    name: studentName,
+    group: studentGroup,
+    faculty: studentFaculty,
+    score: score,
+    percent: percent,
+    date: new Date().toLocaleString()
+  };
+
+  let history = JSON.parse(localStorage.getItem("testHistory")) || [];
+  history.push(record);
+
+  localStorage.setItem("testHistory", JSON.stringify(history));
+}
+
 function showResults() {
-  questionContainer.innerHTML = "";
+  questionContainer.style.display = "none";
   nextButton.style.display = "none";
-  let message = "";
+  historyButton.style.display = "inline-block";
 
   const percent = (score / quizQuestions.length) * 100;
+  let message = "";
+
   if (percent >= 90) message = "Відмінно!";
   else if (percent >= 70) message = "Добре!";
   else if (percent >= 50) message = "Задовільно";
   else message = "Спробуй ще раз!";
 
   resultsContainer.innerHTML = `
-    <p>Твій результат: ${score} із ${quizQuestions.length}</p>
+  <h2>Рузультати</h2>
+  <p><b>Ім'я</b> ${studentName}</p>
+  <p><b>Група</b> ${studentGroup}</p>
+  <p><b>Факультет</b> ${studentFaculty}</p>
+  <p>Твій результат: ${score} із ${quizQuestions.length} (${percent.toFixed(1)}%)</p>
     <p>${message}</p>
   `;
+
+  saveToHistory();
 }
 
-showQuestion(currentQuestionIndex);
+historyButton.addEventListener("click", showHistory);
+
+function showHistory(){
+  let history = JSON.parse(localStorage.getItem("testHistory")) || [];
+
+  if (history.length === 0){
+    historyContainer.innerHTML = "<p>Історія порожня</p>";
+    return;
+  }
+
+  let html = "<h2>Історія проходження тесту</h2>";
+
+  history.forEach(item => {
+    html += `
+    <div class="history-item">
+    <p><b>Ім'я</b> ${item.name}</p>
+    <p><b>Група</b> ${item.group}</p>
+    <p><b>Факультет</b> ${item.faculty}</p>
+    <p><b>Результат</b> ${item.score} / ${quizQuestions.length} (${item.percent}%)</p>
+    <p><b>Дата</b> ${item.date}</p>
+    </div>
+    `
+  });
+
+  historyContainer.innerHTML = html;
+}

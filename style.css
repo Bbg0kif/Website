@@ -42,6 +42,15 @@ h1 {
   background: #dfe6e9;
 }
 
+input[type="text"]{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
 button {
   margin-top: 15px;
   padding: 10px 20px;
@@ -62,4 +71,17 @@ button:hover {
   font-weight: bold;
   font-size: 18px;
   margin-top: 20px;
+}
+
+#history-container{
+  margin-top: 20px;
+  text-align: left;
+}
+
+.history-item{
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: #fafafa;
 }
