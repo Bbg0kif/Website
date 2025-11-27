@@ -10,56 +10,169 @@ body {
 
 .quiz-container {
   background: #fff;
-  padding: 30px;
-  border-radius: 20px;
-  width: 550px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 20px; 
+  border-radius: 15px;
+  width: 500px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   text-align: center;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 22px; 
+  margin-bottom: 15px;
+}
+
+h2 {
+  color: #0984e3;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .question {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .answers label {
   display: block;
   background: #f1f2f6;
-  margin: 8px 0;
-  padding: 8px 10px;
-  border-radius: 8px;
+  margin: 5px 0;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
   text-align: left;
+  border: 1px solid #f1f2f6;
+  font-size: 15px;
+}
+
+.answers input[type="radio"] {
+  display: none;
 }
 
 .answers label:hover {
   background: #dfe6e9;
+  transform: none;
+}
+
+.answers label.correct {
+  background: #6ab04c; color: white; border: 1px solid #487e32; cursor: default;
+}
+.answers label.wrong {
+  background: #eb4d4b; color: white; border: 1px solid #b83d3c; cursor: default;
+}
+.answers label.correct-after-wrong {
+  background: #f9ca24; color: #333; border: 1px solid #e7c000; cursor: default;
+}
+.answers label.correct:hover,
+.answers label.wrong:hover,
+.answers label.correct-after-wrong:hover {
+  background: inherit;
+  transform: none;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 button {
-  margin-top: 15px;
+  margin: 10px 5px 0 5px; 
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 15px;
   border: none;
   background: #0984e3;
   color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background: #74b9ff;
+  transform: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#results-navigation {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#result-counter {
+  font-weight: bold;
 }
 
 #results {
   font-weight: bold;
-  font-size: 18px;
-  margin-top: 20px;
+  font-size: 16px;
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
 }
+
+#history-container {
+  margin-top: 10px;
+  text-align: left;
+  border-top: 1px solid #ccc; 
+  padding-top: 10px;
+}
+
+.history-item {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  background: #f9f9f9;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  font-size: 14px;
+}
+
+.history-data {
+  flex-grow: 1; 
+}
+
+.history-item p {
+  margin: 3px 0; 
+  font-size: 13px; 
+}
+
+.history-item p b {
+  display: inline-block;
+  min-width: 70px;
+  font-weight: 600;
+  color: #0984e3;
+}
+
+.history-analyze-btn {
+  padding: 5px 10px;
+  font-size: 13px;
+  background: #ffa502;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.history-analyze-btn:hover {
+  background: #ffc048;
+}
+/* commit */

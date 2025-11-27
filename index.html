@@ -9,10 +9,28 @@
 <body>
   <div class="quiz-container">
     <h1>Онлайн Опитування з Інформатики</h1>
-    <div id="question-container"></div>
-    <button id="next-btn">Наступне питання</button>
+    <div id="registration-container">
+      <h2>Реєстрація</h2>
+      <label>Ім'я</label>
+      <input type="text" id="student-name" placeholder="Введіть ім'я">
+      <label>Група</label>
+      <input type="text" id="student-group" placeholder="Введіть групу">
+      <label>Факультет</label>
+      <input type="text" id="student-faculty" placeholder="Введіть факультет">
+      <button id="start-btn">Почати тест</button>
+    </div>
+    <div id="question-container" style="display:none;"></div>
+    <div id="results-navigation" style="display:none;">
+        <button id="prev-result-btn" disabled>&#8592; Попереднє</button>
+        <span id="result-counter"></span>
+        <button id="next-result-btn">Наступне &#8594;</button>
+    </div>
+    <button id="next-btn" style="display:none;">Наступне питання</button>
     <div id="results"></div>
+    <button id="history-btn" style="display:none;">Показати історію</button>
+    <div id="history-container"></div>
   </div>
   <script src="script.js"></script>
 </body>
 </html>
+<!-- commit -->
