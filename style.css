@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #81ecec, #74b9ff);
+  background: linear-gradient(120deg, #de93eb, #f6badd);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-  color: #0984e3;
+  color: #a55eea;
   font-size: 18px;
   margin-bottom: 10px;
 }
@@ -57,13 +57,13 @@ h2 {
 }
 
 .answers label.correct {
-  background: #6ab04c; color: white; border: 1px solid #487e32; cursor: default;
+  background: #bceba8; color: white; border: 1px solid #6b905d; cursor: default;
 }
 .answers label.wrong {
-  background: #eb4d4b; color: white; border: 1px solid #b83d3c; cursor: default;
+  background: #de9695; color: white; border: 1px solid #c08080; cursor: default;
 }
 .answers label.correct-after-wrong {
-  background: #f9ca24; color: #333; border: 1px solid #e7c000; cursor: default;
+  background: #ead793; color: #333; border: 1px solid #f0e3a0; cursor: default;
 }
 .answers label.correct:hover,
 .answers label.wrong:hover,
@@ -86,7 +86,7 @@ button {
   padding: 10px 20px;
   font-size: 15px;
   border: none;
-  background: #0984e3;
+  background: #a55eea;
   color: white;
   border-radius: 8px;
   cursor: pointer;
@@ -95,7 +95,7 @@ button {
 }
 
 button:hover:not(:disabled) {
-  background: #74b9ff;
+  background: #d980fa;
   transform: none;
   box-shadow: 0 4px 6px rgba(0,0,0,0.15);
 }
@@ -158,13 +158,13 @@ button:disabled {
   display: inline-block;
   min-width: 70px;
   font-weight: 600;
-  color: #0984e3;
+  color: #a55eea;
 }
 
 .history-analyze-btn {
   padding: 5px 10px;
   font-size: 13px;
-  background: #ffa502;
+  background: #a55eea;
   color: white;
   border: none;
   border-radius: 5px;
@@ -173,5 +173,5 @@ button:disabled {
 }
 
 .history-analyze-btn:hover {
-  background: #ffc048;
+  background: #d980fa;
 }
