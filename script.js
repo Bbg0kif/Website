@@ -9,7 +9,6 @@ const resultsNav = document.getElementById('results-navigation');
 const prevResultBtn = document.getElementById('prev-result-btn');
 const nextResultBtn = document.getElementById('next-result-btn');
 const resultCounter = document.getElementById('result-counter');
-
 let studentName = "";
 let studentGroup = "";
 let studentFaculty = "";
@@ -19,7 +18,6 @@ let score = 0;
 let userAnswers = [];
 let reviewIndex = 0; 
 let latestQuizResults = null;
-
 const quizQuestions = [
   { question: "1. Який пристрій є основним для введення тексту в комп’ютер?", answers: { a: "Монітор", b: "Клавіатура", c: "Принтер", d: "Мишка" }, correctAnswer: "b" },
   { question: "2. Що таке операційна система?", answers: { a: "Комп’ютерна гра", b: "Пристрій пам’яті", c: "Програма для керування комп’ютером", d: "Програма для створення текстів" }, correctAnswer: "c" },
@@ -67,8 +65,8 @@ function showQuestion(index) {
   const answersHTML = Object.keys(q.answers)
   .map(letter => `
     <label data-answer="${letter}">
-      <input type="radio" name="answer" value="${letter}">
-      ${letter}) ${q.answers[letter]}
+    <input type="radio" name="answer" value="${letter}">
+    ${letter}) ${q.answers[letter]}
     </label>
   `).join('');
   questionContainer.innerHTML = `
@@ -86,12 +84,12 @@ function handleAnswerSelection(event) {
   const selectedInput = event.target;
   const selectedAnswerValue = selectedInput.value;
   userAnswers[currentQuestionIndex] = selectedAnswerValue;
-  checkAnswer(selectedAnswerValue); 
+  checkAnswer(selectedAnswerValue);
   nextButton.disabled = false;
 }
 
 function checkAnswer(selectedAnswer) {
-  answerSelected = true; 
+  answerSelected = true;
   const currentQuestion = quizQuestions[currentQuestionIndex];
   const correctAnswer = currentQuestion.correctAnswer;
   const allInputs = questionContainer.querySelectorAll('input[type="radio"]');
@@ -130,12 +128,12 @@ function saveToHistory(){
     group: studentGroup,
     faculty: studentFaculty,
     score: score,
-    scoretotal: totalQuestions,
+    total: totalQuestions,
     percent: percent,
     questions: quizQuestions,
     userAnswers: userAnswers,
     date: new Date().toLocaleString()
-  };
+  }; 
   latestQuizResults = record;
   let history = JSON.parse(localStorage.getItem("testHistory")) || [];
   history.push(record);
@@ -162,7 +160,6 @@ function showResults() {
   saveToHistory();
   document.getElementById('review-btn').addEventListener('click', () => showReview(latestQuizResults));
 }
-
 
 function showReview(quizData) {
   if (!quizData || !quizData.questions) return;
@@ -200,8 +197,8 @@ function renderReviewQuestion() {
     <div class="question">${q.question}</div>
     <div class="answers">${answersHTML}</div>
     <p style="margin-top: 15px;">
-      Твоя відповідь: <b>${q.answers[userAnswer] || 'Немає відповіді'}</b>
-      (Статус: <span style="color: ${isCorrect ? '#6ab04c' : '#eb4d4b'}; font-weight: bold;">${isCorrect ? 'Правильно' : 'Неправильно'}</span>)
+     Твоя відповідь: <b>${q.answers[userAnswer] || 'Немає відповіді'}</b>
+     (Статус: <span style="color: ${isCorrect ? '#6ab04c' : '#eb4d4b'}; font-weight: bold;">${isCorrect ? 'Правильно' : 'Неправильно'}</span>)
     </p>
   `;
   resultCounter.textContent = `${reviewIndex + 1} / ${latestQuizResults.questions.length}`;
@@ -252,6 +249,7 @@ function showHistory(){
       </div>
     `;
   });
+
   historyContainer.innerHTML = html;
   document.querySelectorAll('.history-analyze-btn').forEach(button => {
     button.addEventListener('click', (event) => {
@@ -261,4 +259,3 @@ function showHistory(){
     });
   });
 }
-// commit
